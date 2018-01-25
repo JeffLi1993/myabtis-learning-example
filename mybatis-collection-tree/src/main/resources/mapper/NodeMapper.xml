@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.mybatis.dao.NodeDao">
+
+  <resultMap id="BaseTreeResultMap" type="org.mybatis.domain.Node">
+    <result column="id" property="id"/>
+    <result column="name" property="name"/>
+    <collection column="id" property="next" javaType="java.util.ArrayList"
+                ofType="org.mybatis.domain.Node" select="getNextNodeTree"/>
+  </resultMap>
+
+  <resultMap id="NextTreeResultMap" type="org.mybatis.domain.Node">
+    <result column="id" property="id"/>
+    <result column="name" property="name"/>
+    <collection column="id" property="next" javaType="java.util.ArrayList"
+                ofType="org.mybatis.domain.Node" select="getNextNodeTree"/>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+		id, name
+	</sql>
+
+  <select id="getNextNodeTree" resultMap="NextTreeResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM node
+    WHERE parent_id = #{id}
+  </select>
+
+  <select id="getNodeTree" resultMap="BaseTreeResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM node
+    WHERE parent_id = 0
+  </select>
+
+</mapper>
