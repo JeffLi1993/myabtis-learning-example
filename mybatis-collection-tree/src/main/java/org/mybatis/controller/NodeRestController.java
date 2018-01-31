@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * 节点业务控制成类
- *
+ *  Node 表自关联 聚集查询
  * Created by bysocket on 24/01/2018.
  */
 @RestController

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.dao.UserDao">
+    <resultMap id="BaseResultMap" type="org.mybatis.domain.User">
+        <result column="userid" jdbcType="INTEGER" property="userid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <collection property="roles" ofType="org.mybatis.domain.Role" javaType="ArrayList" column="userid"
+                    select="getUserRoles"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    userid, name
+  </sql>
+
+    <select id="getUserDetail" resultMap="BaseResultMap">
+    SELECT USERID, NAME FROM USER
+  </select>
+
+    <select id="getUserRoles" parameterType="java.lang.Integer" resultType="org.mybatis.domain.Role">
+    SELECT A.ROLEID, A.ROLENAME FROM ROLE A LEFT JOIN USER_ROLE B ON A.ROLEID = B.ROLEID WHERE B.USERID = #{userid}
+  </select>
+
+</mapper>
