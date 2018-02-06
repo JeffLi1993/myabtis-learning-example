@@ -9,22 +9,25 @@
     <resultMap id="AdvancedResultMap" type="org.mybatis.domain.User">
         <result column="userid" jdbcType="INTEGER" property="userid"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
-        <collection property="roles" ofType="org.mybatis.domain.Role" javaType="ArrayList" column="userid"
-                    select="getUserRoles"/>
+        <association property="userDetail" javaType="org.mybatis.domain.UserDetail" column="userid" select="getDetail">
+            <result column="userid" jdbcType="INTEGER" property="userid"/>
+            <result column="address" jdbcType="VARCHAR" property="address"/>
+            <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        </association>
     </resultMap>
 
     <sql id="Base_Column_List">
-    userid, name
+      userid, name
     </sql>
 
-    <select id="getUserWithRole" resultMap="AdvancedResultMap">
-    SELECT
-        <include refid="Base_Column_List" />
-    FROM USER
+    <select id="getUserWithDetail" resultMap="AdvancedResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM USER
     </select>
 
-    <select id="getUserRoles" parameterType="java.lang.Integer" resultType="org.mybatis.domain.Role">
-    SELECT A.ROLEID, A.ROLENAME FROM ROLE A LEFT JOIN USER_ROLE B ON A.ROLEID = B.ROLEID WHERE B.USERID = #{userid}
+    <select id="getDetail" resultType="org.mybatis.domain.UserDetail">
+      SELECT userid, address, phone FROM USER_DETAIL WHERE USERID = #{userid}
     </select>
 
 </mapper>

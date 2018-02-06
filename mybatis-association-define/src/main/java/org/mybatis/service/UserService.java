@@ -15,8 +15,9 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * get user's info with role list
+     * get user's basic info with detail info
+     *
      * @return
      */
-    List<User> getUserWithRole();
+    List<User> getUserWithDetail();
 }

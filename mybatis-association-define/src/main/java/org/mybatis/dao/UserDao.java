@@ -16,5 +16,8 @@ import java.util.List;
 @Component
 public interface UserDao {
 
-    List<User> getUserWithRole();
+    List<User> getUserWithDetail();
+
+
+
 }

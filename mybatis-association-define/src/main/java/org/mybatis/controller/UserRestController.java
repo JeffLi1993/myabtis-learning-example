@@ -23,11 +23,11 @@ public class UserRestController {
     private UserService userService;
 
     /**
-     * curl http://localhost:8888/users 查看结果
+     * curl http://localhost:8889/user/detail 查看结果
      * @return
      */
-    @GetMapping(value = "/users")
-    public List<User> getUserWithRole() {
-        return userService.getUserWithRole();
+    @GetMapping(value = "/user/detail")
+    public List<User> getUserWithDetail() {
+        return userService.getUserWithDetail();
     }
 }

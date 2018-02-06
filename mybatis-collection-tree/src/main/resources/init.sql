@@ -1,23 +1,44 @@
-CREATE DATABASE test;
+-- --------------------------------
+-- created by Aaron Yang 2018-02-01
+-- --------------------------------
+CREATE DATABASE IF NOT EXISTS test;
 
 USE test;
 
+-- ----------------------------
+-- Table structure for node
+-- ----------------------------
+DROP TABLE IF EXISTS `node`;
 CREATE TABLE `node` (
   `id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `parent_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `roleid` int(11) DEFAULT NULL,
   `rolename` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userid` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `userid` INT(11)      DEFAULT NULL,
+  `name`   VARCHAR(255) DEFAULT NULL
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
+-- ----------------------------
+-- Table structure for user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
   `userid` int(11) DEFAULT NULL,
   `roleid` int(11) DEFAULT NULL

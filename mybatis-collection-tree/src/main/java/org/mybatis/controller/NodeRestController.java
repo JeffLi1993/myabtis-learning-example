@@ -19,6 +19,10 @@ public class NodeRestController {
     @Autowired
     private NodeService nodeService;
 
+    /**
+     * curl http://localhost:8888/node/tree 查看结果
+     * @return
+     */
     @GetMapping(value = "/node/tree")
     public List<Node> getNodeTree() {
         return nodeService.getNodeTree();

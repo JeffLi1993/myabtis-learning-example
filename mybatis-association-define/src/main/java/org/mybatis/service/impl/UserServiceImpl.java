@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public List<User> getUserWithRole() {
-        return userDao.getUserWithRole();
+    public List<User> getUserWithDetail() {
+        return userDao.getUserWithDetail();
     }
 }
