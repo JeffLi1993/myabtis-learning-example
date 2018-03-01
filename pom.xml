@@ -12,6 +12,65 @@
 		<!-- 高级篇 -->
 		<!-- collection 实现树形结构 -->
 		<module>mybatis-collection-tree</module>
+		<module>mybatis-association-define</module>
 	</modules>
+
+	<properties>
+		<mybatis-spring-boot.version>1.2.0</mybatis-spring-boot.version>
+		<mysql-connector.version>5.1.39</mysql-connector.version>
+		<hutool.version>4.0.3</hutool.version>
+	</properties>
+
+	<!-- Spring Boot 启动父依赖 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.10.RELEASE</version>
+	</parent>
+
+	<dependencies>
+
+		<!-- Spring Boot Web 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Spring Boot Test 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring Boot Mybatis 依赖 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis-spring-boot.version}</version>
+		</dependency>
+
+		<!-- MySQL 连接驱动依赖 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>${hutool.version}</version>
+		</dependency>
+
+		<!--lombok simplify your code 简化你的代码-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
 
 </project>

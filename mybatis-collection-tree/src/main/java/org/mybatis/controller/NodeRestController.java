@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * 节点业务控制成类
- *
+ *  Node 表自关联 聚集查询
  * Created by bysocket on 24/01/2018.
  */
 @RestController
@@ -19,6 +19,10 @@ public class NodeRestController {
     @Autowired
     private NodeService nodeService;
 
+    /**
+     * curl http://localhost:8888/node/tree 查看结果
+     * @return
+     */
     @GetMapping(value = "/node/tree")
     public List<Node> getNodeTree() {
         return nodeService.getNodeTree();

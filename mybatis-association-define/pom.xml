@@ -10,8 +10,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mybatis-collection-tree</artifactId>
-    <name>MyBatis :: collection 集合嵌套查询树形节点</name>
+    <artifactId>mybatis-association-define</artifactId>
+    <name>MyBatis :: association 关联查询</name>
 
 
 </project>
